@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl4sbs5yrmq68"]
+
+[ext_resource type="Script" path="res://Controller.gd" id="1_1iasq"]
+[ext_resource type="Script" path="res://Temp.gd" id="1_kwdl5"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_1iasq")
+yellow = Color(0.905882, 0.92549, 0.168627, 1)
+green = Color(0, 0.85098, 0, 1)
+red = Color(0.921569, 0, 0, 1)
+
+[node name="VSlider" type="VSlider" parent="." node_paths=PackedStringArray("label", "color_box_1")]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 98.0
+offset_right = 92.0
+offset_bottom = -121.0
+grow_vertical = 2
+max_value = 105.0
+step = 0.1
+script = ExtResource("1_kwdl5")
+label = NodePath("../Label")
+yellow = Color(0.898039, 0.92549, 0, 1)
+green = Color(0, 0.988235, 0, 1)
+red = Color(0.968627, 0, 0, 1)
+color_box_1 = NodePath("../ColorRect")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+offset_left = 89.0
+offset_top = 415.0
+offset_right = 182.0
+offset_bottom = 507.0
+theme_override_font_sizes/font_size = 65
+text = "##"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 504.0
+offset_top = 70.0
+offset_right = -498.0
+offset_bottom = -445.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="value_changed" from="VSlider" to="VSlider" method="_on_value_changed"]

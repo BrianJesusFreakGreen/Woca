@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl4sbs5yrmq68"]
+
+[ext_resource type="Script" path="res://Temp.gd" id="1_kwdl5"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="VSlider" type="VSlider" parent="." node_paths=PackedStringArray("label")]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 98.0
+offset_right = 92.0
+offset_bottom = -121.0
+grow_vertical = 2
+max_value = 105.0
+step = 0.1
+script = ExtResource("1_kwdl5")
+label = NodePath("../Label")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+offset_left = 89.0
+offset_top = 415.0
+offset_right = 182.0
+offset_bottom = 507.0
+theme_override_font_sizes/font_size = 65
+text = "##"
+
+[connection signal="value_changed" from="VSlider" to="VSlider" method="_on_value_changed"]
